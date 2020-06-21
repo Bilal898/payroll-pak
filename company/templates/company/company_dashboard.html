@@ -7,6 +7,6 @@
 
 {% block content %}
 {{ company_name }} Dashboard
-
-<input type="submit" value="Create New Employee">
+{% comment %} <a href="{% url 'employee:employee_create' %}">Create New Employee</a> {% endcomment %}
+{% comment %} <input type="submit" value="Create New Employee" > {% endcomment %}
 {% endblock content %}

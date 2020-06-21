@@ -3,8 +3,9 @@
 {% block title %}
 company create
 {% endblock title %}
-
+w
 {% block content %}
+{% comment %} <form action="{% url 'company:company_create' %}", method="POST" novalidate> {% endcomment %}
 <form action=".", method="POST" novalidate>
     {% csrf_token %}
     {{ form.as_p}}

@@ -4,14 +4,14 @@ from .models import Company
 # Create your views here.
 
 
-def company_create_view(request):
+def company_create_view(request, *args, **kwargs):
     form = CompanyForm(request.POST or None)
     if form.is_valid():
         form.save()
         context = {'company_name': request.POST['company_name']}
         # context = {'company_data': request.POST}
         # print(context)
-        return render(request, "company/company_dashboard.html", context)
+        return redirect(request, "company/company_dashboard.html", context)
         form = CompanyForm(request.POST or None)
     # else:
     #     print(form.errors)
