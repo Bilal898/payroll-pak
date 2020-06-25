@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from .views import company_create_view, company_dashboard_view
 
