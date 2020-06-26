@@ -23,4 +23,4 @@ def company_create_view(request, *args, **kwargs):
 
 
 def company_dashboard_view(request, *args, **kwargs):
-    return render("company/company_dashboard.html")
+    return render(request, "company/company_dashboard.html")
