@@ -17,21 +17,19 @@
                         <th>Tax Year</th>
                         <th>Monthly Salary</th>
                         <th>Med. Allowance</th>
-                        <th>Monthly Salary</th>
-                        <th>Med. Allowance</th>
+                        <th>Net Pay</th>
                     </tr>
                     <form action="/employee/calculate_pay/" method="POST">
                     {% comment %} <form action="." method="POST"> {% endcomment %}
                         {% csrf_token %}
                         {% for employee in employee_profiles %}
                             <tr>
-                                <td id="{{employee.id}}" name={{employee.id}}>{{ forloop.counter }}</td>
+                                <td>{{ forloop.counter }}</td>
                                 <td>{{ employee.employee.employee_name }}</td>
                                 <td>{{ employee.tax_year }}</td>
                                 <td>{{ employee.monthly_salary }}</td>
                                 <td>{{ employee.medical_allowance }}</td>
-                                <td ><input id="monthly_salary[{{employee.id}}]" name="monthly_salary[{{employee.id}}]" type="text"></td>
-                                <td ><input id="medical_allowance[{{employee.id}}]" name="medical_allowance[{{employee.id}}]" type="text"></td>
+                                <td>{{ employee.net_pay }}</td>
                             </tr>
                         {% endfor %}
                 </table>

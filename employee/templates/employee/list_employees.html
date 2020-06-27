@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group bg_blue">
+                Employee List
+            </div>
+            <div class="table">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Pay Profile</th>
+                        {% comment %} <th>Net Pay</th> {% endcomment %}
+                    </tr>
+                    {% comment %} <form action="/employee/calculate_pay/" method="POST"> {% endcomment %}
+                    {% comment %} <form action="." method="POST"> {% endcomment %}
+                        {% comment %} {% csrf_token %} {% endcomment %}
+                        {% for employee in employee_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ employee.employee_name }}</td>
+                                <td>{{ employee.employee_address }}</td>
+                                <td><a href="{% url 'employee:payroll_profile' employee.id %}">Pay Profile</a> </td>
+                                {% comment %} <td>{% url 'employee:setup_payroll' employee.id %}</td> {% endcomment %}
+                               
+                            </tr>
+                        {% endfor %}
+                </table>
+                       {% comment %} <input type="submit" value="type="submit"" /> {% endcomment %}
+                       {% comment %} <button type="submit">submit</button> {% endcomment %}
+                    {% comment %} </form> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

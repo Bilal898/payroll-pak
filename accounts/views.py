@@ -27,4 +27,4 @@ def login_view(request, *args, **kwargs):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect("/login")
+    return HttpResponseRedirect("accounts/login")
