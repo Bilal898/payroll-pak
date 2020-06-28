@@ -12,36 +12,36 @@
             <div class="table">
                 <table class="table">
             
-                    <form action="/employee/calculate_pay/" method="POST">
+                    <form action="/employee/calculate_pay_profile/" method="POST">
                     {% comment %} <form action="." method="POST"> {% endcomment %}
-                        {% csrf_token %}
+                    <input type="hidden" id="employee_id" name="employee_id" value="{{ employee.id }}">                        {% csrf_token %}
                             <tr>
                                 <th>Name</th>
-                                <td>{{ employee.employee.employee_name }}</td>
+                                <td>{{ employee.employee_name }}</td>
                             </tr>
                             <tr>
                                 <th>Tax Year</th>
-                                <td>{{ employee.tax_year }}</td>
+                                <td>2019</td>
                             </tr>
                             <tr>
                                 <th>Monthly Salary</th>
-                                <td><input type="text" placeholder="{{ employee.monthly_salary }}"> </td>
+                                <td><input id="monthly_salary" name="monthly_salary" type="text" > </td>
                             </tr>
                             <tr>
                                 <th>Med. Allowance</th>
-                                <td><input type="text" placeholder="{{ employee.medical_allowance }}"></td>
+                                <td><input id="medical_allowance" name="medical_allowance" type="text" ></td>
                             </tr>
                             <tr>
                                 <th>Yearly Salary</th>
-                                <td>{{ employee.yearly_salary }}</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>Tax Deduction/month</th>
-                                <td>{{ employee.tax_ded_month }}</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>Net Pay/Month</th>
-                                <td>{{ employee.net_pay }}</td>
+                                <td></td>
                             </tr>
                           
                           

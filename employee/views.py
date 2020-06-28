@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Employee, EmployeePayrollProfile, EmployeeNetPay
 from .forms import PayProfileForm
+from .utils import pay_calculator
 # Create your views here.
 
 
@@ -32,7 +33,7 @@ def employee_payroll_profile_view(request, employee_id):
     context = {
         'employee': employee
     }
-    return render(request, "employee/employee_payroll_profile_edit.html", context)
+    return render(request, "employee/employee_payroll_profile.html", context)
 
     # if employee_pay.Exists():
     #     context = {
@@ -69,3 +70,21 @@ def calculate_pay(request):
             'employee_profiles': EmployeeNetPay.objects.all()
         }
         return render(request, "employee/net_salary.html", context)
+
+
+def calculate_pay_profile(request):
+    if request.method != 'POST':
+        return HttpResponse("<h3>method not allowed</h3>")
+    else:
+        print("request", request.POST)
+        employee_id = request.POST.get('employee_id')
+        monthly_salary = request.POST.get('monthly_salary')
+        medical_allowance = request.POST.get('medical_allowance')
+        profile = pay_calculator.PayCalculator(
+            monthly_salary, medical_allowance)
+        profile.find_slab()
+        # pay_calculator.findslab(monthly_salary, medical_allowance)
+        context = {
+            'employee_profiles': EmployeePayrollProfile.objects.get(pk=employee_id)
+        }
+        return render(request, "employee/employee_payroll_profile_edit.html", context)

@@ -17,31 +17,31 @@
                         {% csrf_token %}
                             <tr>
                                 <th>Name</th>
-                                <td>{{ employee.employee_name }}</td>
+                                <td>{{ employee.employee.employee_name }}</td>
                             </tr>
                             <tr>
                                 <th>Tax Year</th>
-                                <td>2019</td>
+                                <td>{{ employee.tax_year }}</td>
                             </tr>
                             <tr>
                                 <th>Monthly Salary</th>
-                                <td><input type="text" > </td>
+                                <td><input type="text" placeholder="{{ employee.monthly_salary }}"> </td>
                             </tr>
                             <tr>
                                 <th>Med. Allowance</th>
-                                <td><input type="text" ></td>
+                                <td><input type="text" placeholder="{{ employee.medical_allowance }}"></td>
                             </tr>
                             <tr>
                                 <th>Yearly Salary</th>
-                                <td></td>
+                                <td>{{ employee.yearly_salary }}</td>
                             </tr>
                             <tr>
                                 <th>Tax Deduction/month</th>
-                                <td></td>
+                                <td>{{ employee.tax_ded_month }}</td>
                             </tr>
                             <tr>
                                 <th>Net Pay/Month</th>
-                                <td></td>
+                                <td>{{ employee.net_pay }}</td>
                             </tr>
                           
                           
